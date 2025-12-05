@@ -669,9 +669,14 @@ final class AdminView
         }
 
         $ai_agents = [
-            'gptbot' => 'OpenAI GPTBot',
+            // OpenAI bots - order matters, check specific patterns first
+            'chatgpt-user' => 'ChatGPT-User',
+            'oai-searchbot' => 'OAI-SearchBot',
+            'gptbot' => 'GPTBot',
+            // Generic OpenAI patterns
             'chatgpt' => 'ChatGPT',
-            'openai' => 'OpenAI Crawler',
+            'openai' => 'OpenAI',
+            // Anthropic/Claude
             'claudebot' => 'ClaudeBot',
             'claude-web' => 'Claude Web',
             'anthropic-ai' => 'Anthropic',
@@ -1136,9 +1141,9 @@ final class AdminPages
                     <tr>
                         <th style="width: 140px;"><?php esc_html_e('Date & Time', TEXT_DOMAIN); ?></th>
                         <th style="width: 130px;"><?php esc_html_e('Bot Type', TEXT_DOMAIN); ?></th>
-                        <th style="width: 200px;"><?php esc_html_e('User Agent', TEXT_DOMAIN); ?></th>
+                        <th><?php esc_html_e('User Agent', TEXT_DOMAIN); ?></th>
                         <th style="width: 150px;"><?php esc_html_e('Referrer', TEXT_DOMAIN); ?></th>
-                        <th><?php esc_html_e('URL', TEXT_DOMAIN); ?></th>
+                        <th style="width: 250px;"><?php esc_html_e('URL', TEXT_DOMAIN); ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -1150,13 +1155,8 @@ final class AdminPages
                                     <?php echo esc_html($log->bot_type); ?>
                                 </span>
                             </td>
-                            <td>
-                                <span title="<?php echo esc_attr($log->user_agent); ?>">
-                                    <?php 
-                                    $ua = esc_html($log->user_agent);
-                                    echo strlen($ua) > 35 ? substr($ua, 0, 35) . '...' : $ua;
-                                    ?>
-                                </span>
+                            <td style="word-wrap: break-word; word-break: break-all; max-width: 400px;">
+                                <?php echo esc_html($log->user_agent); ?>
                             </td>
                             <td>
                                 <?php if (!empty($log->referrer)): ?>
@@ -1511,7 +1511,9 @@ final class AdminPages
         <h2><?php esc_html_e('Detected AI Bots', TEXT_DOMAIN); ?></h2>
         <p><?php esc_html_e('The plugin currently detects the following AI bots and referrers:', TEXT_DOMAIN); ?></p>
         <ul style="columns: 3; list-style: disc; padding-left: 20px;">
-            <li>OpenAI / ChatGPT</li>
+            <li>GPTBot (OpenAI)</li>
+            <li>ChatGPT-User</li>
+            <li>OAI-SearchBot</li>
             <li>Claude / Anthropic</li>
             <li>Google Gemini</li>
             <li>Perplexity</li>
