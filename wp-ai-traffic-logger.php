@@ -698,7 +698,6 @@ final class AdminView
             'xai' => 'Grok (xAI)',
             'phindbot' => 'Phind',
             'MetaAI' => 'Meta AI',
-            'facebookexternalhit' => 'Meta AI',
             'Amazonbot' => 'Amazon Alexa',
             'bingbot' => 'Bing Bot',
             'bingpreview' => 'Bing Preview',
