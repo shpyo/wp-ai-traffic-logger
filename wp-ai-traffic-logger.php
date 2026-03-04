@@ -4,7 +4,7 @@
  * Plugin Name: WP AI Traffic Logger
  * Plugin URI: https://github.com/shpyo/wp-ai-traffic-logger
  * Description: Log all traffic from AI bots (ChatGPT, Claude, Gemini, Perplexity, etc.) and AI referrers with minimal performance impact using batch processing.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Piotr Cichosz
  * Author URI: https://github.com/shpyo
  * License: MIT
